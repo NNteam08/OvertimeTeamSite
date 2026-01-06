@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Программа FIRST - Team Overtime</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="nav-script.js"></script>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+        
+        function updateThemeIcon(theme) {
+            const icon = document.getElementById('theme-icon');
+            if (icon) {
+                icon.textContent = theme === 'light' ? '🌙' : '☀️';
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+            
+            const params = new URLSearchParams(window.location.search);
+            const programId = params.get('id');
+            if (programId) {
+                loadProgram(programId);
+            }
+        });
+        
+        function loadProgram(id) {
+            const programs = {
+                'fll': {
+                    title: 'FLL - FIRST LEGO League',
+                    description: 'Программа для детей 4-16 лет, где они строят роботов из LEGO и решают реальные проблемы.',
+                    video: 'https://youtu.be/tzjQQcTsxV0?si=2drfF5GrYKs92rT5',
+                    content: 'FIRST LEGO League знакомит детей с наукой и технологией через увлекательные задачи.'
+                },
+                'ftc': {
+                    title: 'FTC - FIRST Tech Challenge',
+                    description: 'Соревнование по робототехнике для учеников 7-12 классов.',
+                    video: 'https://youtu.be/tzjQQcTsxV0?si=2drfF5GrYKs92rT5',
+                    content: 'FTC объединяет спорт и науку, создавая захватывающий опыт для студентов.'
+                },
+                'frc': {
+                    title: 'FRC - FIRST Robotics Competition',
+                    description: 'Самая продвинутая программа FIRST для старшеклассников.',
+                    video: 'https://youtu.be/tzjQQcTsxV0?si=2drfF5GrYKs92rT5',
+                    content: 'FRC - это соревнование, где команды строят промышленных роботов для сложных игр.'
+                }
+            };
+            
+            if (programs[id]) {
+                document.getElementById('program-title').textContent = programs[id].title;
+                document.getElementById('program-description').textContent = programs[id].description;
+                // document.getElementById('program-video').src = programs[id].video;
+                
+                // helper to extract YouTube ID
+                function getYouTubeId(url) {
+                    if (!url) return null;
+                    try {
+                        const u = new URL(url);
+                        const host = u.hostname.replace('www.','');
+                        if (host === 'youtu.be') return u.pathname.slice(1).split(/[\/?#]/)[0] || null;
+                        if (host.endsWith('youtube.com')) {
+                            if (u.searchParams && u.searchParams.get('v')) return u.searchParams.get('v');
+                            const parts = u.pathname.split('/').filter(Boolean);
+                            const embedIndex = parts.indexOf('embed');
+                            if (embedIndex !== -1 && parts[embedIndex+1]) return parts[embedIndex+1];
+                            if (parts.length === 1) return parts[0];
+                        }
+                    } catch (e) {
+                        // fall back to regex
+                    }
+                    const m = url.match(/(?:v=|\/embed\/|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+                    return m ? m[1] : null;
+                }
+
+                // set preview link instead of embedding
+                const videoUrl = programs[id].video;
+                let videoId = getYouTubeId(videoUrl);
+                // if not found, leave videoId null
+                const watchUrl = videoId ? `https://youtu.be/${videoId}` : videoUrl;
+                const previewLink = document.getElementById('program-video-link');
+                if (previewLink) {
+                    const maxThumb = videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : '';
+                    const hqThumb = videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : '';
+                    previewLink.href = watchUrl;
+                    previewLink.target = '_blank';
+                    previewLink.rel = 'noopener';
+                    previewLink.style.display = 'block';
+                    previewLink.style.width = '100%';
+                    previewLink.style.height = '100%';
+                    if (videoId) {
+                        previewLink.innerHTML = `\
+                            <div style="position:relative; width:100%; height:100%;">\
+                                <img src="${maxThumb}" alt="${programs[id].title}" style="width:100%; height:100%; object-fit:cover; border-radius: var(--radius-md);" onerror="this.onerror=null;this.src='${hqThumb}'">\
+                                <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">\
+                                    <span style="background:rgba(0,0,0,0.6); color:#fff; padding:12px 18px; border-radius:8px; font-weight:600;">Смотреть на YouTube</span>\
+                                </div>\
+                            </div>`;
+                    } else {
+                        previewLink.textContent = 'Смотреть на YouTube';
+                    }
+                }
+                document.getElementById('program-content').innerHTML = programs[id].content;
+             }
+         }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Team Overtime</a>
+            <div style="display: flex; align-items: center;">
+                <ul class="nav-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about-first.html" class="active">FIRST</a></li>
+                    <li><a href="about-ftc.html">FTC</a></li>
+                    <li><a href="learning.html">Обучение</a></li>
+                    <li><a href="team.html">Команда</a></li>
+                </ul>
+                <div class="theme-switcher" onclick="toggleTheme()" title="Переключить тему">
+                    <span id="theme-icon">☀️</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Program Content -->
+    <section class="section" style="padding-top: var(--spacing-lg);">
+        <div class="container">
+            <div style="margin-bottom: var(--spacing-md);">
+                <a href="about-first.html" class="btn btn-secondary" style="margin-bottom: var(--spacing-md);">← Назад к FIRST</a>
+                <h1 id="program-title">Программа FIRST</h1>
+                <p id="program-description" style="font-size: 1.1rem; color: var(--color-text-secondary); margin-top: var(--spacing-sm);">
+                    Описание программы
+                </p>
+            </div>
+            
+            <div class="grid">
+                <div style="grid-column: 1 / 9;">
+                    <div class="card" style="margin-bottom: var(--spacing-md);">
+                        <div class="video-placeholder" style="height: 500px; padding: 0;">
+                            <a id="program-video-link" style="display:block; width:100%; height:100%; text-decoration:none;"></a>
+                         </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h2>О Программе</h2>
+                        <div id="program-content" style="color: var(--color-text-secondary); line-height: 1.8;">
+                            Содержимое программы
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="grid-column: 9 / 13;">
+                    <div class="card" style="position: sticky; top: 100px;">
+                        <h3 style="margin-bottom: var(--spacing-md);">Полезные Ресурсы</h3>
+                        <ul id="program-resources" style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: var(--spacing-sm);">
+                                <a href="https://www.firstinspires.org" target="_blank" style="color: var(--color-gold); text-decoration: none;">🔗 Официальный сайт FIRST</a>
+                            </li>
+                            <li style="margin-bottom: var(--spacing-sm);">
+                                <a href="#" style="color: var(--color-gold); text-decoration: none;">📚 Регистрация команды</a>
+                            </li>
+                            <li style="margin-bottom: var(--spacing-sm);">
+                                <a href="#" style="color: var(--color-gold); text-decoration: none;">💻 Ресурсы для тренеров</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Навигация</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="about-first.html">О FIRST</a></li>
+                        <li><a href="about-ftc.html">О FTC</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Ресурсы</h4>
+                    <ul class="footer-links">
+                        <li><a href="learning.html">Обучение</a></li>
+                        <li><a href="team.html">Команда</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>FIRST</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.firstinspires.org" target="_blank">FIRST Global</a></li>
+                        <li><a href="about-first.html">FIRST Kazakhstan</a></li>
+                        <li><a href="about-ftc.html">FTC Program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <ul class="footer-links">
+                        <li>Email: info@overtime.kz</li>
+                        <li>Phone: +7 (XXX) XXX-XX-XX</li>
+                        <li>Location: Kazakhstan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
