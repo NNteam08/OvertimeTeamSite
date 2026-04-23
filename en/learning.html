@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Обучение и туториалы - Team Overtime</title>
+    <title>Learning & Tutorials - Team Overtime</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="nav-script.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../nav-script.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -17,14 +17,14 @@
             <a href="index.html" class="logo">Team Overtime</a>
             <div style="display: flex; align-items: center;">
                 <ul class="nav-links">
-                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about-first.html">FIRST</a></li>
                     <li><a href="about-ftc.html">FTC</a></li>
-                    <li><a href="learning.html">Обучение</a></li>
-                    <li><a href="team.html">Команда</a></li>
+                    <li><a href="learning.html">Learning</a></li>
+                    <li><a href="team.html">Team</a></li>
                 </ul>
-                <a href="en/learning.html" class="lang-switcher" style="margin-right: 12px; color: var(--color-gold); text-decoration: none; font-weight: 600; border: 1px solid var(--color-gold); padding: 4px 10px; border-radius: 6px;" title="English version">EN</a>
-                <div class="theme-switcher" onclick="toggleTheme()" title="Переключить тему">
+                <a href="../learning.html" class="lang-switcher" style="margin-right: 12px; color: var(--color-gold); text-decoration: none; font-weight: 600; border: 1px solid var(--color-gold); padding: 4px 10px; border-radius: 6px;" title="Русская версия">RU</a>
+                <div class="theme-switcher" onclick="toggleTheme()" title="Toggle theme">
                     <span id="theme-icon">☀️</span>
                 </div>
             </div>
@@ -35,10 +35,11 @@
     <section class="hero" style="min-height: 400px;">
         <div class="container">
             <div style="text-align: center;">
-                <h1>Обучение и туториалы</h1>
+                <h1>Learning & Tutorials</h1>
                 <p style="font-size: 1.25rem; max-width: 800px; margin: var(--spacing-md) auto; color: var(--color-text-secondary);">
-                    Комплексные учебные модули, разработанные для помощи командам всех уровней добиться успеха в FIRST Tech Challenge. 
-                    От основ до продвинутых техник, найдите всё необходимое для создания конкурентоспособных роботов.
+                    Comprehensive learning modules designed to help teams at every level succeed in FIRST Tech
+                    Challenge. From the basics to advanced techniques, find everything you need to build
+                    competitive robots.
                 </p>
             </div>
         </div>
@@ -52,31 +53,31 @@
                     <span style="font-size: 2rem;">🚀</span> Start Here
                 </h2>
                 <p style="margin-bottom: var(--spacing-md); color: var(--color-text-secondary); font-size: 1.1rem;">
-                    Новичок в FTC? Начните с этого раздела. Мы поможем вам собрать первого робота из минимального набора.
+                    New to FTC? Start with this section. We'll help you build your first robot from a minimal kit.
                 </p>
                 <div class="learning-modules">
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=start-kit'">
                         <div class="card-icon">📦</div>
-                        <h3>Минимальный набор для старта</h3>
+                        <h3>Minimal Starter Kit</h3>
                         <p>
-                            Что нужно купить для начала: базовый набор FTC, инструменты, расходные материалы. 
-                            Список с ценами и где купить в Казахстане.
+                            What you need to buy to get started: basic FTC kit, tools, consumables. A list with
+                            prices and where to buy in Kazakhstan.
                         </p>
                     </div>
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=first-robot'">
                         <div class="card-icon">🔨</div>
-                        <h3>Сборка первого робота</h3>
+                        <h3>Building Your First Robot</h3>
                         <p>
-                            Пошаговая инструкция: от распаковки коробки до первого движения робота. Видео-туториалы 
-                            и чек-листы для каждого этапа.
+                            Step-by-step guide: from unboxing to the robot's first motion. Video tutorials and
+                            checklists for every stage.
                         </p>
                     </div>
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=testing'">
                         <div class="card-icon">✅</div>
-                        <h3>Проверка работоспособности</h3>
+                        <h3>Functionality Testing</h3>
                         <p>
-                            Как проверить, что всё работает: тестирование моторов, сервоприводов, датчиков. 
-                            Решение типичных проблем новичков.
+                            How to check that everything works: testing motors, servos and sensors. Solutions
+                            for typical beginner problems.
                         </p>
                     </div>
                 </div>
@@ -88,34 +89,34 @@
             <!-- Basics Module -->
             <div style="margin-bottom: var(--spacing-lg);">
                 <h2 style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-sm);">
-                    <span style="font-size: 2rem;">📚</span> Основы
+                    <span style="font-size: 2rem;">📚</span> Basics
                 </h2>
                 <p style="margin-bottom: var(--spacing-md); color: var(--color-text-secondary);">
-                    Необходимые знания для новых команд, начинающих работу с FTC.
+                    Essential knowledge for new teams starting out with FTC.
                 </p>
                 <div class="learning-modules">
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=getting-started'">
                         <div class="card-icon">🚀</div>
-                        <h3>Начало работы</h3>
+                        <h3>Getting Started</h3>
                         <p>
-                            Узнайте, как сформировать команду, найти наставников и организовать рабочее пространство. Необходимые первые 
-                            шаги для новых команд FTC.
+                            Learn how to form a team, find mentors and set up your workspace. The essential
+                            first steps for new FTC teams.
                         </p>
                     </div>
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=registration'">
                         <div class="card-icon">📝</div>
-                        <h3>Регистрация</h3>
+                        <h3>Registration</h3>
                         <p>
-                            Пошаговое руководство по регистрации вашей команды в FIRST, пониманию взносов и 
-                            доступу к ресурсам команды.
+                            A step-by-step guide to registering your team with FIRST, understanding fees and
+                            accessing team resources.
                         </p>
                     </div>
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=season-structure'">
                         <div class="card-icon">📅</div>
-                        <h3>Структура сезона</h3>
+                        <h3>Season Structure</h3>
                         <p>
-                            Поймите временную линию сезона FTC: kickoff, сезон сборки, соревнования и важные 
-                            дедлайны в течение года.
+                            Understand the FTC season timeline: kickoff, build season, competitions and key
+                            deadlines throughout the year.
                         </p>
                     </div>
                 </div>
@@ -124,42 +125,42 @@
             <!-- Robot Module -->
             <div style="margin-bottom: var(--spacing-lg);">
                 <h2 style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-sm);">
-                    <span style="font-size: 2rem;">🔧</span> Робот
+                    <span style="font-size: 2rem;">🔧</span> Robot
                 </h2>
                 <p style="margin-bottom: var(--spacing-md); color: var(--color-text-secondary);">
-                    Стройте конкурентоспособных роботов с помощью этих комплексных руководств по механическому дизайну и конструированию.
+                    Build competitive robots with these comprehensive guides on mechanical design and construction.
                 </p>
                 <div class="learning-modules">
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=drivetrains'">
                         <div class="card-icon">🚗</div>
                         <h3>Drivetrains</h3>
                         <p>
-                            Узнайте о различных типах приводов: tank drive, mecanum, swerve и omni wheels. 
-                            Принципы дизайна и критерии выбора.
+                            Learn about different drivetrain types: tank drive, mecanum, swerve and omni
+                            wheels. Design principles and selection criteria.
                         </p>
                     </div>
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=mechanisms'">
                         <div class="card-icon">⚙️</div>
-                        <h3>Механизмы</h3>
+                        <h3>Mechanisms</h3>
                         <p>
-                            Проектируйте эффективные механизмы: интейки, подъёмники, манипуляторы и энд-эффекторы. Механическое 
-                            преимущество, передаточные отношения и анализ сил.
+                            Design effective mechanisms: intakes, lifts, manipulators and end-effectors.
+                            Mechanical advantage, gear ratios and force analysis.
                         </p>
                     </div>
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=electronics'">
                         <div class="card-icon">🔌</div>
-                        <h3>Электроника</h3>
+                        <h3>Electronics</h3>
                         <p>
-                            Обзор электроники FTC: control hub, expansion hub, моторы, сервоприводы и проводка. 
-                            Управление питанием и безопасность.
+                            Overview of FTC electronics: control hub, expansion hub, motors, servos and wiring.
+                            Power management and safety.
                         </p>
                     </div>
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=sensors'">
                         <div class="card-icon">📡</div>
-                        <h3>Датчики</h3>
+                        <h3>Sensors</h3>
                         <p>
-                            Эффективное использование датчиков: энкодеры, IMU, цветовые датчики, дистанционные датчики и 
-                            тактильные датчики. Интеграция и калибровка.
+                            Effective use of sensors: encoders, IMU, color sensors, distance sensors and touch
+                            sensors. Integration and calibration.
                         </p>
                     </div>
                 </div>
@@ -168,42 +169,42 @@
             <!-- Programming Module -->
             <div style="margin-bottom: var(--spacing-lg);">
                 <h2 style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-sm);">
-                    <span style="font-size: 2rem;">💻</span> Программирование
+                    <span style="font-size: 2rem;">💻</span> Programming
                 </h2>
                 <p style="margin-bottom: var(--spacing-md); color: var(--color-text-secondary);">
-                    Освойте программирование FTC от основ до продвинутых техник.
+                    Master FTC programming from the basics to advanced techniques.
                 </p>
                 <div class="learning-modules">
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=ftc-sdk'">
                         <div class="card-icon">📦</div>
                         <h3>FTC SDK</h3>
                         <p>
-                            Введение в Software Development Kit для FTC. Настройка Android Studio, 
-                            структура проекта и основные концепции.
+                            Introduction to the Software Development Kit for FTC. Setting up Android Studio,
+                            project structure and core concepts.
                         </p>
                     </div>
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=autonomous'">
                         <div class="card-icon">🤖</div>
                         <h3>Autonomous</h3>
                         <p>
-                            Написание автономных программ. Движения по времени, навигация на основе датчиков и создание 
-                            надёжных автономных программ.
+                            Writing autonomous programs. Time-based motion, sensor-based navigation and
+                            building reliable autonomous routines.
                         </p>
                     </div>
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=odometry'">
                         <div class="card-icon">📍</div>
                         <h3>Odometry</h3>
                         <p>
-                            Продвинутая локализация с использованием одометрии. Энкодеры на мёртвых колёсах, оценка позы и 
-                            точное позиционирование робота.
+                            Advanced localization using odometry. Dead-wheel encoders, pose estimation and
+                            precise robot positioning.
                         </p>
                     </div>
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=apriltag'">
                         <div class="card-icon">🏷️</div>
                         <h3>AprilTag</h3>
                         <p>
-                            Обработка изображений с обнаружением AprilTag. Настройка камеры, распознавание тегов и 
-                            использование зрения для автономной навигации.
+                            Image processing with AprilTag detection. Camera setup, tag recognition and using
+                            vision for autonomous navigation.
                         </p>
                     </div>
                 </div>
@@ -212,26 +213,26 @@
             <!-- Strategy Module -->
             <div style="margin-bottom: var(--spacing-lg);">
                 <h2 style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-sm);">
-                    <span style="font-size: 2rem;">🎯</span> Стратегия
+                    <span style="font-size: 2rem;">🎯</span> Strategy
                 </h2>
                 <p style="margin-bottom: var(--spacing-md); color: var(--color-text-secondary);">
-                    Конкурентная стратегия и планирование матчей для максимизации производительности вашей команды.
+                    Competitive strategy and match planning to maximize your team's performance.
                 </p>
                 <div class="learning-modules">
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=scouting'">
                         <div class="card-icon">🔍</div>
                         <h3>Scouting</h3>
                         <p>
-                            Эффективные техники скаутинга: сбор данных, анализ и использование данных скаутинга 
-                            для выбора альянсов и стратегии матча.
+                            Effective scouting techniques: data collection, analysis and using scouting data
+                            for alliance selection and match strategy.
                         </p>
                     </div>
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=match-planning'">
                         <div class="card-icon">📊</div>
-                        <h3>Планирование матча</h3>
+                        <h3>Match Planning</h3>
                         <p>
-                            Разработка стратегий матча, коммуникация в альянсе и адаптация к различным 
-                            противникам и условиям поля.
+                            Developing match strategies, alliance communication and adapting to different
+                            opponents and field conditions.
                         </p>
                     </div>
                 </div>
@@ -240,34 +241,34 @@
             <!-- Safety & Organization -->
             <div style="margin-bottom: var(--spacing-lg);">
                 <h2 style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-sm);">
-                    <span style="font-size: 2rem;">🛡️</span> Безопасность и Организация
+                    <span style="font-size: 2rem;">🛡️</span> Safety & Organization
                 </h2>
                 <p style="margin-bottom: var(--spacing-md); color: var(--color-text-secondary);">
-                    Важные аспекты работы команды: безопасность, организация работы, ведение портфолио.
+                    Important aspects of team operations: safety, work organization, portfolio keeping.
                 </p>
                 <div class="learning-modules">
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=safety'">
                         <div class="card-icon">⚠️</div>
-                        <h3>Безопасность в FTC</h3>
+                        <h3>Safety in FTC</h3>
                         <p>
-                            Правила безопасности при работе с инструментами, электроникой, на соревнованиях. 
-                            Чек-лист безопасности для команды.
+                            Safety rules for working with tools, electronics and at competitions. A safety
+                            checklist for your team.
                         </p>
                     </div>
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=team-organization'">
                         <div class="card-icon">👥</div>
-                        <h3>Организация команды</h3>
+                        <h3>Team Organization</h3>
                         <p>
-                            Как распределить роли, организовать встречи, управлять временем. Шаблоны для планирования 
-                            сезона и встреч команды.
+                            How to assign roles, organize meetings and manage time. Templates for planning
+                            your season and team meetings.
                         </p>
                     </div>
                     <div class="module-card" onclick="window.location.href='learning-module.html?id=portfolio'">
                         <div class="card-icon">📔</div>
-                        <h3>Ведение портфолио</h3>
+                        <h3>Portfolio Keeping</h3>
                         <p>
-                            Как вести Engineering Notebook: что записывать, как структурировать, примеры хороших 
-                            записей. Важно для наград Inspire и Think.
+                            How to maintain an Engineering Notebook: what to record, how to structure it,
+                            examples of good entries. Important for Inspire and Think awards.
                         </p>
                     </div>
                 </div>
@@ -314,7 +315,6 @@
                     <ul class="footer-links">
                         <li><a href="learning.html">Guides & Tutorials</a></li>
                         <li><a href="team.html">Our Team</a></li>
-                        <li><a href="download-app.html">Download App</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -338,4 +338,3 @@
     </footer>
 </body>
 </html>
-
